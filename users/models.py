@@ -18,7 +18,8 @@ class CustomUser(AbstractUser):
 # Trigger when a reset password token is created
 @receiver(reset_password_token_created)
 def password_reset_token_created(reset_password_token, *args, **kwargs):
-    sitelink = "http://localhost:5173/"
+    # sitelink = "http://localhost:5173/"
+    sitelink = "https://lecturer-management-frontend.onrender.com"
     token = "{}".format(reset_password_token.key)
     full_link = f"{sitelink}password_reset/{token}"
     context = {
