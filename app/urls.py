@@ -15,7 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.views.generic import TemplateView
+from django.urls import path, include, re_path
 from knox import views as knox_views
 
 urlpatterns = [
@@ -31,5 +32,8 @@ urlpatterns = [
     # Password reset authentication paths
     path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     
+    # Catch-all: serve React index.html for any other route
+    re_path(r'^(?!admin/|api/|static/|media/).*$',
+        TemplateView.as_view(template_name="index.html"), name='react'),
     
 ]
