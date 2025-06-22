@@ -175,7 +175,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tempjapan362@gmail.com'  # Email của bạn
 EMAIL_HOST_PASSWORD = 'wbat xotb lcgv ibvh'  # Mật khẩu email của bạn
-FRONTEND_URL = ' http://localhost:5173'
+# FRONTEND_URL = ' http://localhost:5173'
+FRONTEND_URL = "https://lecturer-management-frontend.onrender.com"
 
 LOGGING = {
     'version': 1,
