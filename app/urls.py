@@ -20,20 +20,20 @@ from django.urls import path, include, re_path
 from knox import views as knox_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('users.urls')),
-    path('' , include('lecturers.urls')),
-    path('', include('documents.urls')),
+    # path('admin/', admin.site.urls),
+    # path('', include('users.urls')),
+    # path('' , include('lecturers.urls')),
+    # path('', include('documents.urls')),
     
-    # Authentication paths from Knox
-    # path('api/auth/', include('knox.urls')),
-    path('logout/', knox_views.LogoutView.as_view(), name='knox_logout'),
-    path('logoutall/', knox_views.LogoutAllView.as_view(), name='knox_logoutall'),
-    # Password reset authentication paths
-    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    # # Authentication paths from Knox
+    # # path('api/auth/', include('knox.urls')),
+    # path('logout/', knox_views.LogoutView.as_view(), name='knox_logout'),
+    # path('logoutall/', knox_views.LogoutAllView.as_view(), name='knox_logoutall'),
+    # # Password reset authentication paths
+    # path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     
-    # Catch-all: serve React index.html for any other route
-    re_path(r'^(?!admin/|api/|static/|media/).*$',
-        TemplateView.as_view(template_name="index.html"), name='react'),
-    
+    # # Catch-all: serve React index.html for any other route
+    # re_path(r'^(?!admin/|api/|static/|media/).*$',
+    #     TemplateView.as_view(template_name="index.html"), name='react'),
+    re_path(r'^.*$', TemplateView.as_view(template_name="index.html")),
 ]
